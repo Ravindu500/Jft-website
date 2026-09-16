@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-jft-cream text-jft-navy font-sans antialiased;
+  }
+
+  /* Japanese text readability */
+  .jp-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-jft-red hover:bg-jft-red-dark text-white font-medium px-5 py-2.5 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-jft-cream-dark text-jft-navy border border-jft-navy/10 font-medium px-5 py-2.5 rounded-xl transition-all duration-200 shadow-sm;
+  }
+  
+  .btn-navy {
+    @apply bg-jft-navy hover:bg-jft-navy-light text-white font-medium px-5 py-2.5 rounded-xl transition-all duration-200 shadow-sm;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-card border border-jft-navy/5 overflow-hidden;
+  }
+  
+  .card-hover {
+    @apply card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300 cursor-pointer;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-jft-navy/15 bg-white focus:outline-none focus:ring-2 focus:ring-jft-red/30 focus:border-jft-red transition-all placeholder:text-jft-navy/40;
+  }
+  
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold text-jft-navy;
+  }
+  
+  .progress-bar {
+    @apply h-2.5 bg-jft-cream-dark rounded-full overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-jft-red to-jft-red-light rounded-full transition-all duration-500;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #C41E3A40;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C41E3A80;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.4s ease-out forwards;
+}
+
+/* Mobile bottom nav safe area */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
